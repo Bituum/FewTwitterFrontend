@@ -1,0 +1,41 @@
+<template>
+<div id="auth">
+  <MainEnteringHeader/>
+  <MainEnteringContent/>
+  <MainEnteringBody/>
+  <MainEnteringFooter/>
+</div>
+</template>
+
+<script>
+import MainEnteringBody from "@/components/Entering/MainEnteringBody";
+import MainEnteringFooter from "@/components/Entering/MainEnteringFooter";
+import MainEnteringHeader from "@/components/Entering/MainEnteringHeader";
+import MainEnteringContent from "@/components/Entering/MainEnteringContent";
+
+
+
+export default {
+  name: "MainEnteringWindow",
+  components: {
+    MainEnteringContent,
+    MainEnteringHeader,
+    MainEnteringBody,
+    MainEnteringFooter
+  }
+}
+</script>
+
+<style>
+
+#auth{
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: 80px 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "content side"
+    "footer footer";
+}
+
+</style>
