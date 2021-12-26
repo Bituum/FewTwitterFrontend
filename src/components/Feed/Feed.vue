@@ -29,12 +29,14 @@ export default {
           console.log("error is here")
           console.log(this.$store.state.token)
 
+
+
         })
 
 
 
 
-    
+
     console.log(this.$store.state.token);
   }
 }
