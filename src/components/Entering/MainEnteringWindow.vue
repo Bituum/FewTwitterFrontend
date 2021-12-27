@@ -31,7 +31,7 @@ export default {
 #auth{
   display: grid;
   grid-template-columns: 1fr 400px;
-  grid-template-rows: 80px 1fr 1fr;
+  grid-template-rows: 60px 1fr 60px;
   grid-template-areas:
     "header header"
     "content side"

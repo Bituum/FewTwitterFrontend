@@ -9,7 +9,7 @@
           <label for="password-label">Password</label>
           <input type="password" id="password-label" v-model="password"/>
         </div>
-        <button type="submit" @click.prevent="handleSubmit">Enter</button>
+        <button type="submit" @click.prevent="handleSubmit" id="enter">Enter</button>
       </div>
     </form>
   </div>
@@ -52,12 +52,19 @@ export default {
   padding: 25px;
 }
 
-
 .auth_box{
   color: #ffffff;
 }
 
 .metadata label {
   display: block;
+}
+
+#enter{
+
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-decoration: underline;
 }
 </style>
