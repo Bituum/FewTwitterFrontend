@@ -1,6 +1,5 @@
 <template>
   <footer class="feedFooter">
-
   </footer>
 </template>
 
@@ -14,4 +13,5 @@ export default {
 .feedFooter{
   grid-area: footer;
 }
+
 </style>

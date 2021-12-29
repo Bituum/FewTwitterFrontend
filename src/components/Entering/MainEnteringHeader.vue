@@ -26,7 +26,7 @@ export default {
 .box {
   margin-left: 30px;
   font-size: 20pt;
-  color: #ffffff;
+  color: antiquewhite;
 }
 .wrapper {
   background-color: #1a1a1d;

@@ -22,6 +22,9 @@ export default {
     MainEnteringHeader,
     MainEnteringBody,
     MainEnteringFooter
+  },
+  mounted() {
+    this.$store.commit("clear");
   }
 }
 </script>

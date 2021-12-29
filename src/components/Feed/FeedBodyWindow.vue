@@ -1,13 +1,12 @@
 <template>
   <div class="feedWindow">
     <div class="feedContent">
-      <div v-if="isLoading === true">
+      <div class="loading" v-if="isLoading === true">
         идет загрузка ...
       </div>
       <div v-else v-for="user in users" :key="user.id">
-        <div v-for="post in user.userPostList" :key="post.id">
-          {{user.login}}
-          {{post.commentSection}}
+        <div class="windowLine" v-for="post in user.userPostList" :key="post.id">
+          <WindowFrame v-bind:username="user.login" v-bind:comment="post.commentSection" v-bind:photo-icon="user.imagePath"/>
         </div>
         </div>
 
@@ -17,9 +16,13 @@
 
 <script>
 import axios from "axios";
+import WindowFrame from "@/components/Feed/WindowFrame";
 
 export default {
   name: "FeedBodyWindow",
+  components:{
+    WindowFrame
+  },
   data() {
     return {
       users: [],
@@ -27,14 +30,13 @@ export default {
     }
   },
   mounted() {
-
     axios.get("http://localhost:8081/user")
     .then((res) =>{
       this.users = res.data;
       this.isLoading = false;
     }
     ).catch((err)=>{
-      console.log(err)
+      console.log(err);
     })
   }
 }
@@ -49,7 +51,15 @@ export default {
 }
 
 .feedContent {
-  background-color: white;
+  background-color: #6f2232;
   word-break: break-all;
+}
+
+.windowLine{
+  margin-bottom: 30px;
+}
+
+.loading{
+  color: antiquewhite;
 }
 </style>

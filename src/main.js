@@ -17,11 +17,55 @@ const store = new Vuex.Store({
 
   ],
   state:{
-    token: ""
+    token: "",
+    photo: "",
+    userId: "",
+    email:"",
+    friends: 0,
+    name:"",
+    secondName:"",
+    patronymic:"",
+    hobby:""
   },
   mutations:{
     setToken(state, token){
       state.token = token
+    },
+    setPhoto(state, photo){
+      state.photo = photo
+    },
+    setUserId(state, id){
+      state.userId = id
+    },
+    setEmail(state, email){
+      state.email = email
+    },
+    setName(state, name){
+      state.name = name
+    },
+    setSecondName(state, sname){
+      state.secondName = sname
+    },
+    setPatron(state, patron){
+      state.patronymic = patron
+    },
+    setHobby(state, hobby){
+      state.hobby = hobby
+    },
+    setFriends(state, friends){
+      state.friends = friends
+    },
+    clear(state){
+      state.token = "";
+      state.photo = "";
+      state.userId = "";
+      state.email = "";
+      state.friends = "";
+      state.hobby = "";
+      state.name ="";
+      state.secondName = "";
+      state.patronymic = "";
+      state.friends = 0;
     }
   }
 })

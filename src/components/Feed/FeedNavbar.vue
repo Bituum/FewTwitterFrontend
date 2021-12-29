@@ -7,13 +7,13 @@
           <div>
             <ul>
               <li>
-                <a href="#">Друзья</a>
+                <button>Друзья</button>
               </li>
               <li>
-                <a href="#">Личная страница</a>
+                <button type="button" @click="handleLinkLk">Личный кабинет</button>
               </li>
               <li>
-                <button type="button" @click="handleLogOut">LogOut</button>
+                <button type="button" id="logout" @click="handleLogOut">Выйти</button>
               </li>
             </ul>
           </div>
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+  <img id="navImg" src="https://pngimg.com/uploads/2022_year/small/2022_year_PNG28.png" alt="">
 </div>
 </template>
 
@@ -29,10 +30,22 @@ export default {
   name: "FeedNavbar",
   methods:{
     handleLogOut(){
-      sessionStorage.clear();
-      document.location.reload();
+      this.$store.commit("clear");
+      //document.location.reload();
+      this.$router.replace({
+        name:"index"
+      })
+    },
+    handleLinkLk(){
+      this.$router.replace(
+          {
+            name:"lk"
+          }
+      )
     }
-  }
+
+  },
+
 }
 </script>
 
@@ -49,7 +62,27 @@ export default {
 
 .navbar-content{
   display: flex;
+}
 
+.feedNavbar button{
+  background-color: transparent;
+  border: none;
+  color: antiquewhite;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#logout{
+  background-color: #9400D3;
+}
+
+ul li{
+  list-style: none;
+}
+
+#navImg{
+  height: 120px;
+  width: 240px;
 }
 
 </style>

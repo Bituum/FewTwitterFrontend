@@ -34,7 +34,6 @@ export default {
               'Content-Type': 'application/json'
             }}
       ).then((response) =>{
-        console.log(response.data.token)
         this.$store.commit("setToken", response.data.token)
         this.$router.replace(
             {
