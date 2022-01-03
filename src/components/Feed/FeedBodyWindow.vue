@@ -6,12 +6,13 @@
       </div>
       <div v-else v-for="user in users" :key="user.id">
         <div class="windowLine" v-for="post in user.userPostList" :key="post.id">
-          <WindowFrame v-bind:username="user.login" v-bind:comment="post.commentSection" v-bind:photo-icon="user.imagePath"/>
+          <WindowFrame v-bind:username="user.login" v-bind:comment="post.commentSection"
+                       v-bind:photo-icon="user.imagePath"/>
         </div>
-        </div>
-
       </div>
+
     </div>
+  </div>
 </template>
 
 <script>
@@ -20,7 +21,7 @@ import WindowFrame from "@/components/Feed/WindowFrame";
 
 export default {
   name: "FeedBodyWindow",
-  components:{
+  components: {
     WindowFrame
   },
   data() {
@@ -30,14 +31,24 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://localhost:8081/user")
-    .then((res) =>{
-      this.users = res.data;
-      this.isLoading = false;
-    }
-    ).catch((err)=>{
-      console.log(err);
-    })
+    axios.get("http://localhost:8081/user",
+        {
+          headers: {
+            Authorization: "Bearer_" + this.$store.state.token
+          }
+        })
+        .then((res) => {
+              this.users = res.data;
+              console.log(res.data)
+              this.isLoading = false
+            }
+        )
+        .catch(() => {
+          console.log("catch here")
+          // this.$router.replace({
+          //   name: "index"
+          // })
+        })
   }
 }
 
@@ -55,11 +66,11 @@ export default {
   word-break: break-all;
 }
 
-.windowLine{
+.windowLine {
   margin-bottom: 30px;
 }
 
-.loading{
+.loading {
   color: antiquewhite;
 }
 </style>

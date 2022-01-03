@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {authorization} from "@/services/authorization";
 
 export default {
   name: "MainEnteringLogin",
@@ -28,19 +28,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      axios.post("http://localhost:8081/auth/user",
-          {login: this.email, password: this.password},
-          {headers:{
-              'Content-Type': 'application/json'
-            }}
-      ).then((response) =>{
-        this.$store.commit("setToken", response.data.token)
-        this.$router.replace(
-            {
-              name:"feed"
-            }
-        )
-      })
+      authorization("http://localhost:8081/auth/user", "feed", this.email, this.password, this.$store, this.$router);
     }
   }
 }

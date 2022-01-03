@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 import LKExt from "@/components/UserPage/LKExt";
 import LKFooter from "@/components/UserPage/LKFooter";
 import LKMain from "@/components/UserPage/LKMain";
@@ -23,36 +23,18 @@ export default {
     LKHeader
   },
   created() {
-    axios.get("http://localhost:8081/check",
-        {
-          params:{
-            token: this.$store.state.token
-          }
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .catch(() => {
-          console.log("!!auth error!!")
-          this.$router.replace({
-            name: "index"
-          })
-
-        })
-        console.log(this.$store.state.userId);
-        axios.get("http://localhost:8081/user/" + this.$store.state.userId)
-        .then((res) =>{
-          console.log("XUI");
-          console.log(res.data);
-          this.$store.commit("setPhoto", res.data.imagePath.replace(/"/g, ""));
-          this.$store.commit("setEmail", res.data.username);
-        })
-        .catch((error) =>{
-          console.log(error)
-        })
-    console.log(this.$store.state.token);
+    //     console.log(this.$store.state.userId);
+    //     axios.get("http://localhost:8081/user/" + this.$store.state.userId)
+    //     .then((res) =>{
+    //       console.log("XUI");
+    //       console.log(res.data);
+    //       this.$store.commit("setPhoto", res.data.imagePath.replace(/"/g, ""));
+    //       this.$store.commit("setEmail", res.data.username);
+    //     })
+    //     .catch((error) =>{
+    //       console.log(error)
+    //     })
+    // console.log(this.$store.state.token);
   }
 }
 </script>

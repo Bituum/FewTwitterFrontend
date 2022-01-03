@@ -7,6 +7,9 @@
           <div>
             <ul>
               <li>
+                <button type="button" @click="handleLinkNewPost">Добавить запись</button>
+              </li>
+              <li>
                 <button>Друзья</button>
               </li>
               <li>
@@ -40,6 +43,13 @@ export default {
       this.$router.replace(
           {
             name:"lk"
+          }
+      )
+    },
+    handleLinkNewPost(){
+      this.$router.replace(
+          {
+            name:"cmt"
           }
       )
     }
